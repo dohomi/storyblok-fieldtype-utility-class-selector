@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="uk-form-row">
-            <label class="uk-form-label">Utility Class Names</label>
             <div v-if="model.values && model.values.length">
                 <div v-for="(item,key) in model.values"
                      :key="'values_'+item"
