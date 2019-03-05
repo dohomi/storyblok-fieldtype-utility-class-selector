@@ -140,7 +140,7 @@
       initWith () {
         return {
           // needs to be equal to your storyblok plugin name
-          plugin: 'bootstrap-utility-class-selection'
+          plugin: 'bootstrap-utility-class-selector'
         }
       },
       pluginCreated () {
