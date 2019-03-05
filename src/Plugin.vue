@@ -2,46 +2,48 @@
     <div>
         <div class="uk-form-row">
             <div v-if="model.values && model.values.length">
-            <div v-if="model.values && model.values.length">
-                <div v-for="(item,key) in model.values"
-                     :key="'values_'+item"
-                     class="uk-badge uk-badge-notification">
-                    {{item}}
-                    <a @click.stop="unselectItem(key)" class="uk-icon-hover uk-icon-remove color-danger"></a>
-                </div>
-            </div>
-            <div style="text-align: right" v-if="model.values && model.values.length">
-                <a @click="unselect">
-                    <small>(<i class="uk-icon color-danger uk-icon-remove"></i> remove all)</small>
-                </a>
-            </div>
-            <div class="select select--inline" :class="{'select--open':openSelect}">
-                <a class="select__btn ellipsis" @click.stop="onSelectionSearch">
-                    Please select...
-                </a>
-
-                <div class="select__dropdown" :style="{'display':openSelect?'block':'none'}">
-                    <div class="select__type-search">
-                        <input type="search" class="uk-width-1-1 js-term-input" v-model="search" placeholder="Search">
+                <div v-if="model.values && model.values.length">
+                    <div v-for="(item,key) in model.values"
+                         :key="'values_'+item"
+                         class="uk-badge uk-badge-notification">
+                        {{item}}
+                        <a @click.stop="unselectItem(key)" class="uk-icon-hover uk-icon-remove color-danger"></a>
                     </div>
-                    <div style="max-height: 200px; overflow-y: auto; ">
-                        <div style="padding: 5px;">
+                </div>
+                <div style="text-align: right" v-if="model.values && model.values.length">
+                    <a @click="unselect">
+                        <small>(<i class="uk-icon color-danger uk-icon-remove"></i> remove all)</small>
+                    </a>
+                </div>
+                <div class="select select--inline" :class="{'select--open':openSelect}">
+                    <a class="select__btn ellipsis" @click.stop="onSelectionSearch">
+                        Please select...
+                    </a>
 
-                            <div v-for="(items,key) in listItems"
-                                 :key="key">
-                                <template v-if="items && items.length">
-                                    <h4 style="text-transform: capitalize;background-color: whitesmoke"
-                                        class="padding-sm margin-0">
-                                        {{key}}</h4>
-                                    <div class="padding-sm">
-                                        <a class="text-block"
-                                           v-for="(value,keyValues) in items"
-                                           :key="keyValues"
-                                           @click="selectItem(value)">
-                                            {{value}}
-                                        </a>
-                                    </div>
-                                </template>
+                    <div class="select__dropdown" :style="{'display':openSelect?'block':'none'}">
+                        <div class="select__type-search">
+                            <input type="search" class="uk-width-1-1 js-term-input" v-model="search"
+                                   placeholder="Search">
+                        </div>
+                        <div style="max-height: 200px; overflow-y: auto; ">
+                            <div style="padding: 5px;">
+
+                                <div v-for="(items,key) in listItems"
+                                     :key="key">
+                                    <template v-if="items && items.length">
+                                        <h4 style="text-transform: capitalize;background-color: whitesmoke"
+                                            class="padding-sm margin-0">
+                                            {{key}}</h4>
+                                        <div class="padding-sm">
+                                            <a class="text-block"
+                                               v-for="(value,keyValues) in items"
+                                               :key="keyValues"
+                                               @click="selectItem(value)">
+                                                {{value}}
+                                            </a>
+                                        </div>
+                                    </template>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,8 +54,6 @@
 </template>
 
 <script>
-
-
   const breakpoints = ['sm', 'md', 'lg', 'xl']
   const sizes = ['2', '3', '4', '5']
   const variants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'white']
