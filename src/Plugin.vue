@@ -2,6 +2,7 @@
     <div>
         <div class="uk-form-row">
             <div v-if="model.values && model.values.length">
+            <div v-if="model.values && model.values.length">
                 <div v-for="(item,key) in model.values"
                      :key="'values_'+item"
                      class="uk-badge uk-badge-notification">
@@ -141,9 +142,7 @@
       initWith () {
         return {
           // needs to be equal to your storyblok plugin name
-          plugin: 'bootstrap-utility-class-selector',
-          title: '',
-          description: ''
+          plugin: 'bootstrap-utility-class-selector'
         }
       },
       pluginCreated () {
