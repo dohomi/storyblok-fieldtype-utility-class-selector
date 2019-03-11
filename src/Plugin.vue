@@ -25,7 +25,8 @@
                                placeholder="Search">
                     </div>
                     <div style="max-height: 200px; overflow-y: auto; ">
-                        <div style="padding: 5px;">
+                        <div style="padding: 5px;"
+                             ref="wrap_list">
 
                             <div v-for="(items,key) in listItems"
                                  :key="key">
@@ -53,12 +54,12 @@
 
 <script>
   const breakpoints = ['sm', 'md', 'lg', 'xl']
-  const sizes = ['2', '3', '4', '5']
+  const sizes = ['1', '2', '3', '4', '5']
   const variants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'white']
   const options = {
     display: ['d-block', 'd-flex', 'd-none', 'd-inline-block', 'd-inline-flex', 'd-table', 'd-table-cell'], // with breakpoints
     sizing: ['w-100', 'h-100', 'mw-100', 'mh-100'],
-    spacing: ['m-1', 'mt-1', 'mb-1', 'mr-1', 'ml-1', 'mx-1', 'my-1', 'p-1', 'pt-1', 'pb-1', 'pr-1', 'pl-1', 'px-1', 'py-1'],
+    spacing: ['m-0', 'mt-0', 'mb-0', 'mr-0', 'ml-0', 'mx-0', 'my-0', 'p-0', 'pt-0', 'pb-0', 'pr-0', 'pl-0', 'px-0', 'py-0'],
     addons: ['d-print-none'],
     border: ['border', 'rounded', 'rounded-sm', 'rounded-lg', 'rounded-circle', 'rounded-0'],
     color: [],
@@ -117,10 +118,43 @@
     data () {
       return {
         search: '',
+        selected: 0,
         openSelect: false
       }
     },
+    // mounted () {
+    //   document.addEventListener('keyup', this.keyboardNav)
+    // },
+    // destroyed () {
+    //
+    //   document.removeEventListener('keyup', this.keyboardNav)
+    // },
     methods: {
+      // keyboardNav (e) {
+      //   if (this.openSelect) {
+      //     const allItems = document.getElementsByClassName('text-block')
+      //     console.log(allItems)
+      //     if (e.key === 'ArrowUp') {
+      //       // key up
+      //       this.selected > 0 && this.selected--
+      //     } else if (e.key === 'ArrowDown') {
+      //         console.log(this.selected)
+      //       if (this.selected === 0) {
+      //         allItems[this.selected].classList.add('active')
+      //         this.selected++
+      //       } else if (this.selected < allItems.length - 1) {
+      //         allItems[this.selected].classList.remove('active')
+      //         allItems[this.selected + 1].classList.add('active')
+      //         this.selected++
+      //       }
+      //       this.selected++
+      //     } else if (e.key === 'Enter') {
+      //       console.log('enter')
+      //     }
+      //     console.log(e)
+      //   }
+      // },
+
       unselectItem (position) {
         this.model.values.splice(position, 1)
       },
@@ -133,6 +167,7 @@
         this.$set(this.model, 'values', [])
       },
       selectItem (item) {
+        this.search = ''
         const oldValues = this.model.values && this.model.values.slice(0)
         const newValues = Array.isArray(oldValues) ? oldValues.concat(item) : [item]
         this.$set(this.model, 'values', newValues)
@@ -179,6 +214,10 @@
     }
 
     .text-block:hover {
+        background-color: floralwhite;
+    }
+
+    .text-block.active {
         background-color: floralwhite;
     }
 
