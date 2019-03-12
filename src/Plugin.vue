@@ -55,7 +55,7 @@
 <script>
   const breakpoints = ['sm', 'md', 'lg', 'xl']
   const sizes = ['1', '2', '3', '4', '5']
-  const variants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'white']
+  const variants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'white', 'transparent']
   const options = {
     display: ['d-block', 'd-flex', 'd-none', 'd-inline-block', 'd-inline-flex', 'd-table', 'd-table-cell'], // with breakpoints
     sizing: ['w-100', 'h-100', 'mw-100', 'mh-100'],
