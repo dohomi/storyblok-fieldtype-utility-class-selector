@@ -96,7 +96,7 @@
     const values = options[location]
     values.forEach(item => {
       sizes.forEach(size => {
-        options[location].push(item.replace('-1', `-${size}`))
+        options[location].push(item.replace('-0', `-${size}`))
       })
     })
   }
