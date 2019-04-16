@@ -6,10 +6,7 @@
                          v-model="model.values"
                          class="uk-width-1-1"
                          :options="optionValues"
-                         group-values="values"
-                         group-label="selector"
                          placeholder="Select class names"
-                         :group-select="false"
                          :hide-selected="true"
                          :clear-on-select="false"
                          @open="onMultiOpen"
@@ -89,7 +86,8 @@
     text: ['text-left', 'text-right', 'text-center', 'text-lowercase', 'text-uppercase', 'text-capitalize', 'text-truncate', 'text-black-50',
       'text-white-50', 'text-muted',
       'text-hide', 'text-monospace',
-      'font-weight-light', 'font-weight-bold', 'font-weight-normal']
+      'font-weight-light', 'font-weight-bold', 'font-weight-normal'],
+    badge: ['badge','badge-pill']
   }
 
   addResponsiveBreakpoints('display')
@@ -98,6 +96,7 @@
   addVariants('border', 'border')
   addVariants('color', 'bg')
   addVariants('color', 'text')
+  addVariants('badge','badge')
   addResponsiveBreakpointsIntoArray('text', 'text-left')
   addResponsiveBreakpointsIntoArray('text', 'text-right')
   addResponsiveBreakpointsIntoArray('text', 'text-center')
@@ -219,12 +218,13 @@
     },
     computed: {
       optionValues () {
-        const res = []
+        let res = []
         Object.keys(options).forEach(key => {
-          res.push({
-            selector: key,
-            values: options[key]
-          })
+          // res.push({
+          //   selector: key,
+          //   values: options[key]
+          // })
+          res = res.concat(options[key])
           // const values = options[key]
 
           // res[key] = values
