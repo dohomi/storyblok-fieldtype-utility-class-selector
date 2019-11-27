@@ -37,7 +37,8 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^6.5.1",
     "eslint-plugin-vue": "^5.2.3",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "@lumen/mwc": "git+https://github.com/dohomi/storyblok-nexjs-mwc.git#0.4.4"
   },
   "eslintConfig": {
     "root": true,

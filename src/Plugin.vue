@@ -20,6 +20,7 @@
 <script>
   import Multiselect from 'vue-multiselect'
   import 'vue-multiselect/dist/vue-multiselect.min.css'
+  import utilityClassNames from '@lumen/mwc/utilityClassNames'
 
   const breakpoints = ['sm', 'md', 'lg', 'xl']
   const sizes = ['1', '2', '3', '4', '5']
@@ -120,7 +121,14 @@
         search: '',
         selected: 0,
         openSelect: false,
-        optionValues: allOptions.slice(0)
+        optionValues: []
+      }
+    },
+    mounted () {
+      if (this.options && this.options.mui) {
+        this.optionValues = utilityClassNames
+      } else {
+        this.optionValues = allOptions.slice(0)
       }
     },
     methods: {
