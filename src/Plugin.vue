@@ -36,7 +36,8 @@
     text: ['text-left', 'text-right', 'text-center', 'text-lowercase', 'text-uppercase', 'text-capitalize', 'text-truncate', 'text-black-50',
       'text-white-50', 'text-muted',
       'text-hide', 'text-monospace',
-      'font-weight-light', 'font-weight-bold', 'font-weight-normal'],
+      'font-weight-light', 'font-weight-bold', 'font-weight-normal', 'font-weight-100', 'font-weight-200', 'font-weight-300', 'font-weight-400',
+      'font-weight-500', 'font-weight-600', 'font-weight-700', 'font-weight-800', 'font-weight-900'],
     badge: ['badge', 'badge-pill'],
     flex: ['justify-content-start', 'justify-content-end', 'justify-content-center', 'justify-content-between', 'justify-content-around', 'align-content-start',
       'align-content-end', 'align-content-center', 'align-content-around', 'align-content-stretch', 'align-items-start', 'align-items-end', 'align-items-center',
@@ -125,8 +126,10 @@
       }
     },
     mounted () {
+      // console.log("im here")
       if (this.options && this.options.mui) {
         this.optionValues = utilityClassNames
+        // console.log(utilityClassNames)
       } else {
         this.optionValues = allOptions.slice(0)
       }
